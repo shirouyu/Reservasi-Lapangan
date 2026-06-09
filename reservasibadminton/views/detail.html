@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Lapangan</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="hero">
+        <img src="/images/gambar1.jfif" alt="KPMB Arena">
+    </div>
+
+    <div class="info">
+        <div class="left-info">
+            <h1>KPMB ARENA YOGYAKARTA</h1>
+            <p>⭐ 4.8</p>
+
+            <h3>Deskripsi</h3>
+            <p>Lapangan badminton indoor dengan fasilitas lengkap.</p>
+
+            <h3>Fasilitas</h3>
+            <div class="facility">
+                <span>🚻 Toilet</span>
+                <span>🅿 Parkir</span>
+                <span>🕌 Mushola</span>
+                <span>📶 Wifi</span>
+            </div>
+        </div>
+
+        <div class="right-info">
+            <h2>Rp 30.000</h2>
+            <p>Per Jam</p>
+            <button class="red-btn">Cek Ketersediaan</button>
+        </div>
+    </div>
+
+    <div class="booking-section">
+
+        <div class="gallery">
+            <img src="/images/gambar1.jfif" alt="Gallery">
+        </div>
+
+        <div class="schedule">
+
+            <h2>BADMINTON KPMB ARENA</h2>
+
+            <div class="date-filter-wrapper">
+
+                <div class="date-slider" id="dateSlider"></div>
+
+                <button class="cal-trigger-btn" id="calBtn" type="button">
+                    <svg width="20"
+                         height="20"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#b40024"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </button>
+
+                <div class="calendar-double-popup" id="calPopup">
+
+                    <div class="calendar-months-container">
+
+                        <div class="month-box">
+                            <div class="month-header">
+                                <button type="button"
+                                        class="nav-arrow"
+                                        id="prevMonthBtn">
+                                    &lt;
+                                </button>
+
+                                <span id="leftMonthTitle">
+                                    Bulan Kiri
+                                </span>
+
+                                <span class="nav-arrow" style="visibility: hidden;">
+                                    &gt;
+                                </span>
+                            </div>
+
+                            <div class="days-grid" id="leftDaysGrid"></div>
+                        </div>
+
+                        <div class="month-box">
+                            <div class="month-header">
+                                <span class="nav-arrow" style="visibility: hidden;">
+                                    &lt;
+                                </span>
+
+                                <span id="rightMonthTitle">
+                                    Bulan Kanan
+                                </span>
+
+                                <button type="button"
+                                        class="nav-arrow"
+                                        id="nextMonthBtn">
+                                    &gt;
+                                </button>
+                            </div>
+
+                            <div class="days-grid" id="rightDaysGrid"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+                class="red-btn accordion-btn"
+                id="toggleSchedule"
+                style="
+                    width: auto;
+                    padding: 10px 20px;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                ">
+                <span>6 Jadwal Tersedia</span>
+                <span class="arrow">▼</span>
+            </button>
+
+            <div
+                class="time-grid"
+                id="scheduleGrid"
+                style="display: none;">
+
+                <div class="time-box booked">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">08.00 - 09.00</span>
+                    <span class="status">Booked</span>
+                </div>
+
+                <div class="time-box booked">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">09.00 - 10.00</span>
+                    <span class="status">Booked</span>
+                </div>
+
+                <div class="time-box booked">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">10.00 - 11.00</span>
+                    <span class="status">Booked</span>
+                </div>
+
+                <div class="time-box booked">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">11.00 - 12.00</span>
+                    <span class="status">Booked</span>
+                </div>
+
+                <a href="/cart" class="time-box available">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">12.00 - 13.00</span>
+                    <span class="price">Rp30.000</span>
+                </a>
+
+                <a href="/cart" class="time-box available">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">13.00 - 14.00</span>
+                    <span class="price">Rp30.000</span>
+                </a>
+
+                <a href="/cart" class="time-box available">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">14.00 - 15.00</span>
+                    <span class="price">Rp30.000</span>
+                </a>
+
+                <a href="/cart" class="time-box available">
+                    <span class="duration">60 Menit</span>
+                    <span class="time">15.00 - 16.00</span>
+                    <span class="price">Rp30.000</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/detail.js"></script>
+
+</body>
+</html>

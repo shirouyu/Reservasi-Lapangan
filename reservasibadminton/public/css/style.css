@@ -1,0 +1,431 @@
+/* ==========================
+   RESET & ELEMENT UTAMA
+========================== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fcfcfc;
+    margin: 0;
+    padding: 30px;
+}
+
+/* ==========================
+   HEADER FILTER ATAS
+========================== */
+
+.venue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    font-size: 14px;
+    color: #666;
+}
+
+.venue-header strong {
+    color: #000;
+}
+
+.sort-dropdown span {
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+/* ==========================
+   GRID KARTU CONTAINER
+========================== */
+
+.container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ==========================
+   KARTU MODERN MINI
+========================== */
+
+.card {
+    width: 290px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================
+   GAMBAR VENUE
+========================== */
+
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    background: #f5f5f5;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================
+   AREA KONTEN TEKS
+========================== */
+
+.content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.badge-type {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content h3 {
+    margin: 2px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.rating-location {
+    margin: 0;
+    font-size: 13px;
+    color: #555;
+}
+
+/* ==========================
+   AREA HARGA
+========================== */
+
+.price-section {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px dashed #f0f0f0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.price-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.price-period {
+    font-size: 13px;
+    color: #888;
+}
+
+/* ==========================
+   BUTTON LIHAT DETAIL
+========================== */
+
+button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* ==========================
+   CSS DETAIL.HTML
+========================== */
+
+.hero img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-info {
+    width: 70%;
+}
+
+.right-info {
+    width: 25%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.red-btn {
+    width: 100%;
+    background: #b40024;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.facility {
+    display: flex;
+    gap: 30px;
+}
+
+.court-list {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.court-list button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+.booking-section {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.gallery {
+    width: 35%;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.schedule {
+    width: 65%;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 100px;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.time-box.available {
+    background: #fff;
+    border: 2px solid #28a745;
+}
+
+.time-box.available:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.time-box.booked {
+    background: #f5f5f5;
+    border: 2px solid #ddd;
+    cursor: not-allowed;
+}
+
+.duration {
+    font-size: 12px;
+    color: #777;
+}
+
+.time {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+
+.price {
+    margin-top: auto;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status {
+    margin-top: auto;
+    color: #d11a2a;
+    font-weight: bold;
+}
+
+/* ==========================
+   DATE SLIDER
+========================== */
+
+.date-filter-wrapper {
+    position: relative;
+}
+
+.date-slider {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    overflow-x: auto;
+}
+
+.date-item {
+    min-width: 80px;
+    padding: 10px;
+    text-align: center;
+    background: #f5f5f5;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.date-item:hover {
+    background: #eee;
+}
+
+.date-item.active {
+    background: #28a745;
+    color: white;
+}
+
+.day-name {
+    display: block;
+    font-size: 12px;
+}
+
+.day-num {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* ==========================
+   BUTTON KALENDER
+========================== */
+
+.cal-trigger-btn {
+    width: auto;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ==========================
+   POPUP KALENDER
+========================== */
+
+.calendar-double-popup {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    z-index: 999;
+    display: none;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-double-popup.open {
+    display: block;
+}
+
+.calendar-months-container {
+    display: flex;
+    gap: 30px;
+}
+
+.month-box {
+    width: 280px;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ==========================
+   GRID KALENDER
+========================== */
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day-label {
+    text-align: center;
+    padding: 8px 0;
+    font-weight: bold;
+    color: #777;
+}
+
+.day-cell {
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.day-cell:hover {
+    background: #f0f0f0;
+}
+
+.day-cell.selected-red {
+    background: #b40024;
+    color: white;
+    font-weight: bold;
+}
+
+.disabled {
+    visibility: hidden;
+}
