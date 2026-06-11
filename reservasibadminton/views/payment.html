@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran Booking</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+    padding:30px;
+    color:#333;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.card-title{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:20px;
+    padding-left:12px;
+    border-left:5px solid #8B0000;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#8B0000;
+}
+
+.option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.option input{
+    accent-color:#8B0000;
+}
+
+.hidden{
+    display:none;
+}
+
+.bank-list,
+.ewallet-list{
+    margin-left:30px;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+
+.bank-list label,
+.ewallet-list label{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    margin-right:15px;
+    margin-bottom:10px;
+}
+
+.summary-card{
+    position:sticky;
+    top:20px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.summary-row span{
+    color:#666;
+}
+
+.total{
+    border-top:1px solid #eee;
+    margin-top:15px;
+    padding-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.refund-box{
+    background:#fff7f7;
+    border:1px solid #ffd4d4;
+    border-radius:12px;
+    padding:15px;
+    color:#666;
+    line-height:1.6;
+}
+
+.btn-pay{
+    width:100%;
+    border:none;
+    background:linear-gradient(135deg,#8B0000,#b30000);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+    transition:.3s;
+}
+
+.btn-pay:hover{
+    transform:translateY(-2px);
+}
+
+.alert{
+    display:none;
+    background:#fff4e5;
+    color:#b76e00;
+    border:1px solid #ffd591;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .summary-card{
+        position:static;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- KIRI -->
+    <div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Data Penyewa
+            </div>
+
+            <div id="warningBox" class="alert">
+                ⚠ Lengkapi data penyewa terlebih dahulu.
+            </div>
+
+            <div class="input-group">
+                <label>Nama Lengkap</label>
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama lengkap">
+            </div>
+
+            <div class="input-group">
+                <label>Nomor HP</label>
+                <input
+                    type="text"
+                    id="hp"
+                    placeholder="Masukkan nomor HP">
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Masukkan email">
+            </div>
+
+        </div>
+
+        <!-- METODE PEMBAYARAN -->
+        <div class="card">
+
+            <div class="card-title">
+                Metode Pembayaran
+            </div>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Cash"
+                    checked>
+                Cash
+            </label>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="QRIS">
+                QRIS
+            </label>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="Transfer">
+                Transfer Bank
+            </label>
+
+            <div
+                id="bankOptions"
+                class="bank-list hidden">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="bank"
+                        value="BCA">
+                    BCA
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="bank"
+                        value="BNI">
+                    BNI
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="bank"
+                        value="BRI">
+                    BRI
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="bank"
+                        value="Mandiri">
+                    Mandiri
+                </label>
+
+            </div>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="payment"
+                    value="EWallet">
+                E-Wallet
+            </label>
+
+            <div
+                id="ewalletOptions"
+                class="ewallet-list hidden">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="ewallet"
+                        value="DANA">
+                    DANA
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="ewallet"
+                        value="OVO">
+                    OVO
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="ewallet"
+                        value="GoPay">
+                    GoPay
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="ewallet"
+                        value="ShopeePay">
+                    ShopeePay
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- PILIHAN PEMBAYARAN -->
+        <div class="card">
+
+            <div class="card-title">
+                Pilihan Pembayaran
+            </div>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="jenisBayar"
+                    value="Dp">
+                Bayar DP 50%
+            </label>
+
+            <label class="option">
+                <input
+                    type="radio"
+                    name="jenisBayar"
+                    value="Lunas"
+                    checked>
+                Bayar Lunas 100%
+            </label>
+
+        </div>
+
+        <!-- REFUND -->
+        <div class="card">
+
+            <div class="card-title">
+                Reschedule & Refund
+            </div>
+
+            <div class="refund-box">
+                • Reschedule maksimal H-1 sebelum jadwal bermain.
+                <br><br>
+
+                • Refund maksimal H-2 sesuai kebijakan venue.
+                <br><br>
+
+                • Pembatalan pada hari yang sama tidak dapat direfund.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- KANAN -->
+    <div>
+
+        <div class="card summary-card">
+
+            <div class="card-title">
+                Ringkasan Booking
+            </div>
+
+            <div class="summary-row">
+                <span>Venue</span>
+                <strong id="venue">KPMB Arena</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Lapangan</span>
+                <strong id="lapangan">Lapangan 1</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Tanggal</span>
+                <strong id="tanggal">15 Juni 2026</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Jam</span>
+                <strong id="jam">19:00 - 21:00</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Durasi</span>
+                <strong id="durasi">2 Jam</strong>
+            </div>
+
+            <hr style="margin:20px 0;border:none;border-top:1px solid #eee;">
+
+            <div class="summary-row">
+                <span>Harga</span>
+                <strong id="harga">Rp60.000</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>PPN (11%)</span>
+                <strong id="pajak">Rp0</strong>
+            </div>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <strong id="total">Rp0</strong>
+            </div>
+
+            <button
+                class="btn-pay"
+                id="btnBayar">
+                Bayar Sekarang
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/payment.js"></script>
+
+</body>
+</html>

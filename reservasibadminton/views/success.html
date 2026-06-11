@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Berhasil</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.success-card{
+    width:100%;
+    max-width:700px;
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.icon-success{
+    width:90px;
+    height:90px;
+    margin:auto;
+    margin-bottom:20px;
+    border-radius:50%;
+    background:#e8fff0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:45px;
+}
+
+.title{
+    text-align:center;
+    color:#8B0000;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.section-title{
+    color:#8B0000;
+    margin-bottom:15px;
+    font-size:18px;
+    font-weight:600;
+}
+
+.detail-box{
+    background:#fafafa;
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.row span{
+    color:#666;
+}
+
+.row strong{
+    color:#222;
+}
+
+.payment-info{
+    background:#fff7f7;
+    border:1px solid #ffd7d7;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+.payment-info h4{
+    color:#8B0000;
+    margin-bottom:10px;
+}
+
+.payment-detail{
+    font-weight:bold;
+    color:#222;
+    word-break:break-word;
+}
+
+.note{
+    background:#fff8e8;
+    border:1px solid #ffd591;
+    padding:15px;
+    border-radius:12px;
+    color:#8a5a00;
+    line-height:1.6;
+}
+
+.btn-home{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    background:#8B0000;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    margin-top:25px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-home:hover{
+    background:#a30000;
+}
+
+@media(max-width:600px){
+
+    .row{
+        flex-direction:column;
+        gap:5px;
+    }
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="success-card">
+
+    <div class="icon-success">
+        ✅
+    </div>
+
+    <h1 class="title">
+        Booking Berhasil
+    </h1>
+
+    <p class="subtitle">
+        Data booking berhasil dibuat.
+    </p>
+
+    <div class="detail-box">
+
+        <div class="section-title">
+            Detail Booking
+        </div>
+
+        <div class="row">
+            <span>Kode Booking</span>
+            <strong id="kodeBooking">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Nama</span>
+            <strong id="nama">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Venue</span>
+            <strong id="venue">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Lapangan</span>
+            <strong id="lapangan">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Tanggal</span>
+            <strong id="tanggal">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Jam</span>
+            <strong id="jam">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Durasi</span>
+            <strong id="durasi">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Jenis Pembayaran</span>
+            <strong id="jenisBayar">-</strong>
+        </div>
+
+        <div class="row">
+            <span>Total Bayar</span>
+            <strong id="totalBayar">-</strong>
+        </div>
+
+    </div>
+
+    <div class="payment-info">
+
+        <h4>
+            Informasi Pembayaran
+        </h4>
+
+        <div class="row">
+            <span>Metode</span>
+            <strong id="metode">-</strong>
+        </div>
+
+        <p
+            class="payment-detail"
+            id="detailPembayaran">
+            -
+        </p>
+
+    </div>
+
+    <div class="note">
+        ⚠ Mohon simpan kode booking dan bukti pembayaran.
+        Data ini akan digunakan saat proses verifikasi booking.
+    </div>
+
+    <a href="/" class="btn-home">
+        Kembali ke Beranda
+    </a>
+
+</div>
+
+<script src="/js/success.js"></script>
+
+</body>
+</html>
